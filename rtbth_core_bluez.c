@@ -314,7 +314,9 @@ int rtbt_hps_iface_init(
 #else
                 hdev->type = HCI_PCI;
 #endif
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,8,0)
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(6,10,0)
+                // HCI_PRIMARY macro removed from Kernel;
+#elif LINUX_VERSION_CODE >= KERNEL_VERSION(4,8,0)
                 hdev->dev_type = HCI_PRIMARY;
 #else
                 hdev->dev_type = HCI_BREDR;
